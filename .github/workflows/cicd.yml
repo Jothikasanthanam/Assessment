@@ -24,5 +24,6 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/wisecow-app:latest -f wisecow-deployment/Dockerfile wisecow-deployment
-        docker push ${{ secrets.DOCKER_USERNAME }}/wisecow-app:latest
+       docker build -t ${{ secrets.DOCKER_USERNAME }}/wisecow-app:latest -f Dockerfile .
+       docker push ${{ secrets.DOCKER_USERNAME }}/wisecow-app:latest
+
