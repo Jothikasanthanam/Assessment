@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,13 +26,3 @@ jobs:
       run: |
         docker build -t cloud344/wisecow-app:latest .
         docker push cloud344/wisecow-app:latest
-
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'v1.34.0'
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f wisecow-deployment.yaml
-        kubectl apply -f wisecow-service.yaml
